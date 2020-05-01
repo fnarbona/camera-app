@@ -1,19 +1,52 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+import LoginScreen from './src/screens/screen.login';
+import HomeScreen from './src/screens/screen.home';
+import CameraScreen from './src/screens/screen.camera';
+import CameraRollScreen from './src/screens/screen.camera-roll';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const navigator = createStackNavigator(
+  {
+    LoginScreen: {
+      screen: LoginScreen,
+    },
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: {
+        headerShown: true,
+        headerBackTitle: 'Sign Out'
+      },
+    },
+    CameraScreen: {
+      screen: CameraScreen,
+    },
+    CameraRollScreen: {
+      screen: CameraRollScreen,
+      navigationOptions: {
+        headerShown: true,
+        headerBackTitle: 'Back'
+      },
+    }
   },
-});
+  {
+    initialRouteName: 'LoginScreen',
+    defaultNavigationOptions: {
+      title: 'KAMERA',
+      headerShown: false,
+      headerStyle: {
+        elevation: 0,
+        shadowOpacity: 0,
+        borderBottomWidth: 0,
+        backgroundColor: 'rgb(41, 43, 45)'
+      },
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      headerTintColor: 'rgb(251, 70, 69)'
+    }
+  }
+);
+
+export default createAppContainer(navigator);

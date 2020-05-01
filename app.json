@@ -1,7 +1,10 @@
 {
   "expo": {
-    "name": "interview1.0",
-    "slug": "interview1.0",
+    "packagerOpts": {
+      "config": "metro.config.js"
+    },
+    "name": "camera-app",
+    "slug": "camera-app",
     "platforms": [
       "ios",
       "android",
@@ -9,10 +12,10 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconDefault.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/splashModernBlack_sm.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
